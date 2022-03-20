@@ -1,145 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Assignment 1 - Online CV</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="skill.html">Skills</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="banner" id="banner">
-                <h1>Welcome to my profile.</h1>
-                <h3>My name is Thanh Nguyen</h3>
-                <p>Information Technology student</p>
-                <button><a href="#contact">Contact me</a></button>
-            </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Us</title>
+  </head>
+  <body>
+    <h2>Contact Us</h2>
+    <p>Use the form below to contact us</p>
+    <!--
+      method must be "post" because we have a long message field and a file upload field
+      enctype must be set because we have a file upload field
+    -->
+    <form method="post" action="test.html" enctype="multipart/form-data">
+      <div class="form-row">
+        <div class="form-label">
+          <!--
+            to link a label to an input field,
+            assign the same value to the label's "for" attribute and the input's "id" attribute
+          -->
+          <label for="purpose">Purpose of contact</label>
+        </div>
+        <div class="form-field">
+          <!--
+            "name" is used as variable or array index at the server side
+            so, follow the naming convention of variable
+          -->
+          <select id="purpose" name="purpose">
+            <option value="business">Business</option>
+            <option value="personal">Personal</option>
+          </select>
+        </div>
+      </div>
 
-            <div id="about">
-                <h1>About me</h1>
-                <img src="img/pic1.jpg" alt="Profile picture" style="width:30%">
-                <p>Hello there. My full name is Nguyen Phan Yen Thanh. I prefer everyone call me Kelsey that is my English name. Now, I am studying the last semester of my first year at RMIT university. Moreover, I am tending to become a Web Front-end Developer.</p>
-                <a href="skill.html">Read more &#8594;</a>
-            </div>
+      <div class="form-row">
+        <div class="form-label">
+          <label for="name">Your name</label>
+        </div>
+        <div class="form-field">
+          <input required id="name" type="text" name="name" maxlength="50">
+        </div>
+      </div>
 
-            <div class="project">
-                <h1>Projects</h1>
-                <table>
-                    <tr>
-                        <td><img src="img/web.png" alt=""></td>
-                        <td><img src="img/arduino.png" alt=""></td>
-                        <td><img src="img/english.png" alt=""></td>
-                    </tr>
-                    <tr>
-                        <td><h2>Web Programming</h2></td>
-                        <td><h2>Arduino</h2></td>
-                        <td><h2>English tutor</h2></td>
-                    </tr>
-                    <tr>
-                        <td>This is a web project for English education.  </td>
-                        <td>This is a web project for English education.  </td>
-                        <td>This is a web project for English education.  </td>
-                    </tr>
-                </table>
-            </div>
+      <div class="form-row">
+        <div class="form-label">
+          <label for="email">Your email</label>
+        </div>
+        <div class="form-field">
+          <input required id="email" type="email" name="email">
+        </div>
+      </div>
 
-            <div class="education">
-                <h1>Education</h1>
-                <table style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>Degree/Certificate</th>
-                            <th>Duration</th>
-                            <th>Institution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>High School Diploma</td>
-                            <td>2015 - 2018</td>
-                            <td>Thoai Ngoc Hau high school for gifter</td>
-                        </tr>
-                        <tr>
-                            <td>English Certificate</td>
-                            <td>2018</td>
-                            <td>UOW Malysia KDU</td>
-                        </tr>
-                        <tr>
-                            <td>UI/UX Design Certificate</td>
-                            <td>3/2019 - 7/2019</td>
-                            <td>Green Academy Vietnam</td>
-                        </tr>
-                        <tr>
-                            <td>English IELTS Course Certificate</td>
-                            <td>2020</td>
-                            <td>OK English Academy Philippines</td>
-                        </tr>
-                        <tr>
-                            <td>Bachelor of Information Technology</td>
-                            <td>2021 - Now</td>
-                            <td>RMIT University</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="form-row">
+        <div class="form-label">
+          <label for="phone">Your phone</label>
+        </div>
+        <div class="form-field">
+          <input required id="phone" type="tel" name="phone" pattern="[0-9]{9,13}" title="Enter 9 to 13 digits">
+        </div>
+      </div>
 
-            <div id="contact" class="contact">
-                <h1>Contact Form</h1>
-                <p>Please leave contact details here.</p>
-                <form method="post" action="index.html" enctype="multipart/form-data">
-                    <div class="form-row">
-                        <div class="form-label">
-                            <label for="name">Name</label>
-                        </div>
-                        <div class="form-field">
-                            <input required id="name" type="text" name="name" maxlength="50" title="Please enter your name">
-                        </div>
-                    </div><br>
+      <div class="form-row">
+        <div class="form-label">
+          <label>Preferred contact method</label>
+        </div>
+        <div class="form-field">
+          <!--
+            assign the same name to radios that belong to a single group
+          -->
+          <ul>
+            <li>
+              <input type="radio" id="contact_email" name="contact_method" value="email">
+              <label for="contact_email">Email</label>
+            </li>
+            <li>
+              <input type="radio" id="contact_phone" name="contact_method" value="phone">
+              <label for="contact_phone">Phone</label>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-                    <div class="form-row">
-                        <div class="form-label">
-                            <label for="phone">Phone number</label>
-                        </div>
-                        <div class="form-field">
-                            <input required id="phone" type="phone" name="phone" pattern="[0-9]{9,13}" title="Please enter your name">
-                        </div>
-                    </div><br>
+      <div class="form-row">
+        <div class="form-label">
+          <label>Contact day of week</label>
+        </div>
+        <div class="form-field">
+          <ol>
+            <li>
+              <input type="checkbox" id="contact_day_mon" name="contact_days[]" value="mon">
+              <label for="contact_day_mon">Monday</label>
+            </li>
+            <li>
+              <input type="checkbox" id="contact_day_tue" name="contact_days[]" value="tue">
+              <label for="contact_day_tue">Tuesday</label>
+            </li>
+            <li>
+              <input type="checkbox" id="contact_day_wed" name="contact_days[]" value="wed">
+              <label for="contact_day_wed">Wednesday</label>
+            </li>
+            <li>
+              <input type="checkbox" id="contact_day_thu" name="contact_days[]" value="thu">
+              <label for="contact_day_thu">Thursday</label>
+            </li>
+            <li>
+              <input type="checkbox" id="contact_day_fri" name="contact_days[]" value="fri">
+              <label for="contact_day_fri">Friday</label>
+            </li>
+            <li>
+              <input type="checkbox" id="contact_day_sat" name="contact_days[]" value="sat">
+              <label for="contact_day_sat">Saturday</label>
+            </li>
+            <li>
+              <input type="checkbox" id="contact_day_sun" name="contact_days[]" value="un">
+              <label for="contact_day_sun">Sunday</label>
+            </li>
+          </ol>
+        </div>
+      </div>
 
-                    <div class="form-row">
-                        <div class="form-label">
-                            <label for="email">Email</label>
-                            <p>Please choose your possessive email.</p>
-                        </div>
-                        <div class="form-field">
-                            <input type="radio" name="purpose" value="personal" /> Personal
-                            <input type="radio" name="purpose" value="businesss" /> Organization/Company. <br>
-                            <input required id="mail" type="mail" name="email" title="Please enter your email">
-                        </div>
-                    </div><br>
+      <div class="form-row">
+        <div class="form-label">
+          <label for="message">Your message</label>
+        </div>
+        <div class="form-field">
+          <textarea cols="40" rows="10" required id="message" name="message"></textarea>
+        </div>
+      </div>
 
-                    
-                    <input type="reset" name="clear" value="Clear">
-                    <input type="submit" name="submit" value="Send">
-                    
+      <div class="form-row">
+        <div class="form-label">
+          <label for="attachment">Your attachment</label>
+        </div>
+        <div class="form-field">
+          <input type="file" name="attachment" id="attachment">
+        </div>
+      </div>
 
-                </form>
-            </div>
-        </main>
-
-        <footer>
-            <br><br>
-            &copy; RMIT SSET
-            <p>Author: <strong>Nguyen Phan Yen Thanh</strong></p>
-            <p>sID: s3904681</p>
-        </footer>
-    </body>
+      <div class="form-row">
+        <input type="reset" value="   Clear   ">
+        <input type="submit" value="   Send   ">
+      </div>
+    </form>
+  </body>
 </html>
